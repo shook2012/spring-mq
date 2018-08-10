@@ -6,3 +6,4 @@
 - 封装了MQ的具体实现，可不更改业务代码地切换RocketMQ及ONS
 - 兼容abtest的生产-灰度环境测试
 - 兼容spring3.2.x 及 springboot1.4.5
+- 支持rocketmq3.5.8 +
