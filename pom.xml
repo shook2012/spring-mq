@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.test.skip>true</maven.test.skip>
         <lombok.version>1.16.6</lombok.version>
-        <rocketmq.version>3.5.8</rocketmq.version>
+        <rocketmq.version>4.3.0</rocketmq.version>
         <hessian.version>4.0.38</hessian.version>
         <commons-codec.version>1.6</commons-codec.version>
         <fastjson.version>1.2.31</fastjson.version>
@@ -61,19 +61,19 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.rocketmq</groupId>
+            <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-common</artifactId>
             <version>${rocketmq.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.rocketmq</groupId>
+            <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
             <version>${rocketmq.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.rocketmq</groupId>
+            <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-remoting</artifactId>
             <version>${rocketmq.version}</version>
         </dependency>
@@ -133,17 +133,17 @@
             <artifactId>spring-beans</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.rocketmq</groupId>
+            <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-common</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.rocketmq</groupId>
+            <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.rocketmq</groupId>
+            <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-remoting</artifactId>
         </dependency>
 

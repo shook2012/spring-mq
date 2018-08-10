@@ -1,7 +1,7 @@
 package com.sk.mq.core;
 
-import com.alibaba.rocketmq.client.consumer.listener.*;
-import com.alibaba.rocketmq.common.message.MessageExt;
+import org.apache.rocketmq.client.consumer.listener.*;
+import org.apache.rocketmq.common.message.MessageExt;
 import com.sk.mq.config.MethodRocketMQListenerEndpoint;
 import com.sk.mq.enums.LogCategoryEnum;
 import com.sk.mq.message.MessageBean;

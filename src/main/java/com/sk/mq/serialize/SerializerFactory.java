@@ -1,6 +1,5 @@
 package com.sk.mq.serialize;
 
-import com.alibaba.rocketmq.common.message.Message;
 import com.sk.mq.codec.ObjectInput;
 import com.sk.mq.codec.ObjectOutput;
 import com.sk.mq.codec.Serializer;
@@ -8,6 +7,7 @@ import com.sk.mq.codec.support.hessian.Hessian2Serialization;
 import com.sk.mq.codec.support.nativejava.NativeJavaSerialization;
 import com.sk.mq.enums.SerializeType;
 import com.sk.mq.message.MessageBean;
+import org.apache.rocketmq.common.message.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
@@ -15,7 +15,6 @@ import org.springframework.util.Assert;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * 

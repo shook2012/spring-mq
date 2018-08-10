@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- status : 这个用于设置log4j2自身内部的信息输出,可以不设置,当设置成trace时,会看到log4j2内部各种详细输出 monitorInterval 
+	: Log4j能够自动检测修改配置文件和重新配置本身, 设置间隔秒数。 -->
+<Configuration status="WARN" packages="com.sk.mq">
+
+	<Properties>
+		<!-- 配置日志文件输出目录 -->
+		<Property name="LOG_HOME">/logs</Property>
+		<!-- 配置日志文件名称 -->
+		<Property name="LOG_NAME">springboot-mq</Property>
+	</Properties>
+
+	<Appenders>
+
+		<!--这个输出控制台的配置 -->
+		<console name="console" target="SYSTEM_OUT">
+			<!-- 控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
+			<ThresholdFilter level="trace" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<!-- 输出日志的格式 -->
+			<PatternLayout
+				pattern="[%x/%d{MM-dd HH:mm:ss}][%t][%-3p] %C{1}.%M(%L): %m%n" />
+		</console>
+
+		<!-- 设置日志格式并配置日志压缩格式(service.log.年份.gz) RandomAccessFile -->
+		<RollingFile name="logfile" immediateFlush="true"
+			fileName="${LOG_HOME}/${LOG_NAME}.log" filePattern="${LOG_HOME}/${LOG_NAME}.log.%d{yyyy-MM-dd}"
+			append="true">
+			<!-- %d{yyyy-MM-dd HH:mm:ss, SSS} : 日志生产时间 %p : 日志输出格式 %c : logger的名称 
+				%m : 日志内容，即 logger.info("message") %n : 换行符 %C : Java类名 %L : 日志输出所在行数 %M 
+				: 日志输出所在方法名 hostName : 本地机器名 hostAddress : 本地ip地址 %mm:脱敏打印内容 -->
+			<PatternLayout>
+				<pattern>[%x %d{MM-dd HH:mm:ss}][%t][%-3p] %C{1}.%M(%L): %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy modulate="true"
+					interval="1" />
+				<!-- <SizeBasedTriggeringPolicy size="1 KB" /> -->
+			</Policies>
+		</RollingFile>
+
+
+		<RollingFile name="RocketmqClientAppender" immediateFlush="true" 
+			fileName="${LOG_HOME}/${LOG_NAME}_rocketmq_client.log" filePattern="${LOG_HOME}/${LOG_NAME}_rocketmq_client.log.%d{yyyy-MM-dd}"
+			append="true">
+			<PatternLayout class="org.apache.log4j.PatternLayout">
+				<pattern>%d{yyy-MM-dd HH\:mm\:ss,SSS} %p %c{1}(%L) - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy modulate="true"
+					interval="1" />
+			</Policies>
+		</RollingFile>
+
+
+	</Appenders>
+
+	<Loggers>
+		<!-- 配置日志的根节点 -->
+		<root level="info">
+			<appender-ref ref="console" />
+			<appender-ref ref="logfile" />
+		</root>
+
+		<!-- 第三方日志系统 -->
+		<logger name="com.sk.mq.test" level="info" />
+
+		<!-- 打印rocketmq日志 -->
+		<logger name="RocketmqClient" additivity="false" level="info">
+			<appender-ref ref="RocketmqClientAppender" />
+		</logger>
+
+		<logger name="RocketmqCommon" additivity="false" level="info">
+			<appender-ref ref="RocketmqClientAppender" />
+		</logger>
+
+		<logger name="RocketmqRemoting" additivity="false" level="info">
+			<appender-ref ref="RocketmqClientAppender" />
+		</logger>
+
+	</Loggers>
+
+</Configuration>
