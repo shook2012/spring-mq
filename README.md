@@ -14,5 +14,5 @@
 ## 示例
 ![image](https://github.com/shook2012/spring-mq/raw/master/demo.png)
 
-## 示例
+## Future
 ![image](https://github.com/shook2012/spring-mq/raw/master/future.png)
