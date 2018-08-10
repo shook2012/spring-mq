@@ -7,3 +7,12 @@
 - 兼容abtest的生产-灰度环境测试
 - 兼容spring3.2.x 及 springboot1.4.5
 - 支持rocketmq3.5.8 +
+
+## 设计
+![image](https://github.com/shook2012/spring-mq/raw/master/design.png)
+
+## 示例
+![image](https://github.com/shook2012/spring-mq/raw/master/demo.png)
+
+## 示例
+![image](https://github.com/shook2012/spring-mq/raw/master/feture.png)
