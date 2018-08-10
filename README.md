@@ -15,4 +15,4 @@
 ![image](https://github.com/shook2012/spring-mq/raw/master/demo.png)
 
 ## 示例
-![image](https://github.com/shook2012/spring-mq/raw/master/feture.png)
+![image](https://github.com/shook2012/spring-mq/raw/master/future.png)
