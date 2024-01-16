@@ -17,6 +17,6 @@
 ## Future
 ![image](https://github.com/shook2012/spring-mq/raw/master/future.png)
 
-项目使用Apache开源协议
+本项目使用Apache开源协议
 ## License
 * [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
